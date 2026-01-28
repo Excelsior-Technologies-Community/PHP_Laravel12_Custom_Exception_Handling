@@ -1,7 +1,7 @@
 
-PHP_Laravel_12_Custom_Exception_Handling
+**PHP_Laravel_12_Custom_Exception_Handling**
 
-Step 1: Install Fresh Laravel 12 Application
+**Step 1: Install Fresh Laravel 12 Application**
 ⦁	We create a new Laravel 12 project for implementing custom exception handling.
 ⦁	Open Terminal / Command Prompt and run:
               composer create-project laravel/laravel:^12.0 exception_hendling
@@ -10,8 +10,9 @@ Step 1: Install Fresh Laravel 12 Application
 ⦁	Generate application key:
              php artisan key:generate
 
-Step 2: Configure Database (.env)
+**Step 2: Configure Database (.env)**
        Open .env file and update database settings:
+<img width="550" height="147" alt="image" src="https://github.com/user-attachments/assets/69eb3017-285a-4506-96da-8180aba78b14" />
 
  
 Save the file.
