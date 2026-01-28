@@ -1,59 +1,93 @@
+**PHP_Laravel12_Custome_Exception_Handling**
 
-**PHP_Laravel_12_Custom_Exception_Handling**
+**Step 1: Install Laravel 12 Create Project**
 
-**Step 1: Install Fresh Laravel 12 Application**
-⦁	We create a new Laravel 12 project for implementing custom exception handling.
-⦁	Open Terminal / Command Prompt and run:
-              composer create-project laravel/laravel:^12.0 exception_hendling
-⦁	Move into the project folder:
-              cd exception_hendling
-⦁	Generate application key:
-             php artisan key:generate
+Run command:
 
-**Step 2: Configure Database (.env)**
-       Open .env file and update database settings:
-<img width="550" height="147" alt="image" src="https://github.com/user-attachments/assets/69eb3017-285a-4506-96da-8180aba78b14" />
+     Composer create –project laravel/laravel your folder name “^12.0”
 
- 
-Save the file.
+**Step 2: Setup Database for .env file**
 
-Step 3: Understand Laravel 12 Exception Handling Structure
-⦁	Laravel handles all exceptions using the Exception Handler class.
-Default  File Path:
-             C:\xampp\htdocs\exception_hendling\app\exception_hendling\CustomException.php
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=exception_hendling
+DB_USERNAME=root
+DB_PASSWORD=
 
-This file is responsible for:
-⦁	Handling all application exceptions
-⦁	Custom error responses
-⦁	Custom error pages (404, 500, etc.)
+SESSION_DRIVER=file
 
-Step 4: Customize Exception Handling in CustomException.php
-⦁	We customize how Laravel responds to specific exceptions.
-Open File:
-             C:\xampp\htdocs\exception_hendling\app\exception_hendling\CustomException.php
- 
+**Step 3: Create exception_hendling Folder** 
 
-Step 5: Create a Test Route for Exception
-⦁	We create a route to manually throw an exception for testing.
-Open File:
-C:\xampp\htdocs\exception_hendling\routes\web.php
+app/exception_hendling
 
-Add Route:
- 
+**Step 4: Create CustomException.php file**
 
-Step 6: Run Laravel 12 Project
-Open project terminal and run:
-           php artisan serve
+file path:
+C:\xampp\htdocs\PHP_Laravel12_Custom_Exception_Handling\app\exception_hendling\CustomException.php
 
-Open browser:
-          http://127.0.0.1:8000
+<?php
 
-Step 7: Test Custom Exception Pages
-Open browser:
-           http://127.0.0.1:8000/exception
- 
+namespace App\exception_hendling;
 
+use Exception;
 
+class CustomException extends Exception
+{
+    public function render()
+    {
+        return response()->json([
+            'status' => false,
+            'message' => $this->getMessage(),
+        ], 400);
+    }
+}
+
+**Step 5: Routes**
+
+routes/web.php
+
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\exception_hendling\CustomException;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/exception', function () {
+    throw new CustomException("This is the custome exception");
+});
+
+**STEP 6: Start Server**
+
+**Run:**
+       php artisan serve
+       
+**Open:**
+      http://127.0.0.1:8000/exception
+
+**So you can see this type Output:**
+
+ <img width="742" height="271" alt="image" src="https://github.com/user-attachments/assets/00232546-5abb-40aa-81bd-84777d3fc2f2" />
+
+ **Project Folder Structure:**
+
+ PHP_Laravel12_Custom_Exception_Handling
+├── app/
+│   ├── Exceptions/
+│   │   ├── CustomException.php  
+│
+├── bootstrap/
+│   └── app.php
+│
+├── routes/
+│   └── web.php
+│
+├── .env
+
+└── artisan
 
 
 
