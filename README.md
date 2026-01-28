@@ -43,6 +43,7 @@ class CustomException extends Exception
     }
 }
 
+
 **Step 5: Routes**
 
 routes/web.php
