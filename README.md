@@ -1,13 +1,13 @@
-**PHP_Laravel12_Custome_Exception_Handling**
+# PHP_Laravel12_Custome_Exception_Handling
 
-**Step 1: Install Laravel 12 Create Project**
+# Step 1: Install Laravel 12 Create Project
 
 Run command:
-
+```php
      Composer create –project laravel/laravel your folder name “^12.0”
-
-**Step 2: Setup Database for .env file**
-
+  ```
+# Step 2: Setup Database for .env file
+```php
 DB_CONNECTION=mysql
 DB_HOST=localhost
 DB_PORT=3306
@@ -16,16 +16,18 @@ DB_USERNAME=root
 DB_PASSWORD=
 
 SESSION_DRIVER=file
-
-**Step 3: Create exception_hendling Folder** 
-
+  ```
+# Step 3: Create exception_hendling Folder
+```php
 app/exception_hendling
-
-**Step 4: Create CustomException.php file**
+  ```
+# Step 4: Create CustomException.php file
 
 file path:
+```php
 C:\xampp\htdocs\PHP_Laravel12_Custom_Exception_Handling\app\exception_hendling\CustomException.php
-
+  ```
+```php
 <?php
 
 namespace App\exception_hendling;
@@ -42,12 +44,12 @@ class CustomException extends Exception
         ], 400);
     }
 }
+  ```
 
-
-**Step 5: Routes**
+# Step 5: Routes
 
 routes/web.php
-
+```php
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -60,21 +62,26 @@ Route::get('/', function () {
 Route::get('/exception', function () {
     throw new CustomException("This is the custome exception");
 });
+  ```
 
-**STEP 6: Start Server**
+# STEP 6: Start Server
 
-**Run:**
+Run:
+```php
        php artisan serve
+  ```
        
-**Open:**
+Open:
+```php
       http://127.0.0.1:8000/exception
+  ```
 
-**So you can see this type Output:**
+# So you can see this type Output:
 
  <img width="742" height="271" alt="image" src="https://github.com/user-attachments/assets/00232546-5abb-40aa-81bd-84777d3fc2f2" />
 
- **Project Folder Structure:**
-
+ # Project Folder Structure:
+```php
  PHP_Laravel12_Custom_Exception_Handling
 ├── app/
 │   ├── Exceptions/
@@ -90,5 +97,5 @@ Route::get('/exception', function () {
 
 └── artisan
 
-
+  ```
 
