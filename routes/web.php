@@ -20,6 +20,7 @@ Route::get('/exception', function () {
     throw new CustomException("This is the custom exception");
 });
 
+
 /*
 |--------------------------------------------------------------------------
 | Exception History
